@@ -1,0 +1,24 @@
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  .column {
+    float :left;
+    width: 50%;
+    padding: 10px;
+  }
+  .img-container {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  img {
+    width: 50%;
+    height: auto;
+  }
+  .container {
+    text-align: justify;
+    border: 3px solid lightseagreen;
+    padding: 30px;
+    width: 50%;
+  }
