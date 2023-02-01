@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <link href="css/style.css" rel="stylesheet">  
+</head>
+<body>
+  <center>
+    <div class="calculator">
+
+      <input type="text" id="display">
+
+      <br><br>
+
+      <button id="clear" class="btn">C</button>
+
+      <br><br>
+
+      <button id="multiply" class="btn">x</button>
+      <button id="seven" class="btn">7</button>
+      <button id="eight" class="btn">8</button>
+      <button id="nine" class="btn">9</button>
+
+     <br><br>
+
+      <button id="subtract" class="btn">-</button>
+      <button id="four" class="btn">4</button>
+      <button id="five" class="btn">5</button>
+      <button id="six" class="btn">6</button>
+    
+     <br><br>
+
+      <button id="add" class="btn">+</button>
+      <button id="one" class="btn">1</button>
+      <button id="two" class="btn">2</button>
+      <button id="three" class="btn">3</button>
+    
+      <br><br>
+
+      <button id="divide" class="btn">/</button>
+      <button id="zero" class="btn">0</button>
+      <button id="decimal" class="btn">.</button>
+      <button id="equals" class="btn">=</button>
+   
+    </div>
+  </center>
+  
+
+  <script>
+
+    let display = document.querySelector('#display');
+    let buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => {
+    button.addEventListener('click', () => {
+
+      let value = button.innerHTML;
+      let currentDisplay = display.value;
+
+      if (value === 'C') {
+        display.value = '';
+
+      } else if (value === '=') {
+        display.value = eval(currentDisplay);
+
+      } else if (value === 'x') {
+        display.value += '*';
+        
+      } else {
+        display.value += value;
+      }
+
+     });
+    });
+
+  </script>
+  
+      
+</body>
+</html>
