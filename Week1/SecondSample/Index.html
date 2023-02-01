@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="flex items-center h-screen">
+        <p class="mx-auto">WELCOME</p>
+      </div>
+
+  <input type="text" id="num1">  
+  <input type="text" id="num2"> 
+  <button id="calculate">Calculate</button>
+  <div id="result"></div>
+    <div id="result0"></div>
+        <div id="result1"></div>
+        <div id ="result2"></div>
+  <script>
+    var num1Input = document.getElementById("num1");
+    var num2Input = document.getElementById("num2");
+    var calculateButton = document.getElementById("calculate");
+    var resultDiv = document.getElementById("result");
+    var result0Div = document.getElementById("result0");
+    var result1Div = document.getElementById("result1");
+    var result2Div = document.getElementById("result2");
+
+    calculateButton.addEventListener("click", function() {
+      var num1 = parseFloat(num1Input.value);
+      var num2 = parseFloat(num2Input.value);
+      var result = num1 + num2;
+      resultDiv.textContent = "The sum of " + num1 + " and " + num2 + " and " + " is " + result;
+      var result0 = num1 - num2;
+      result0Div.textContent = "The subtract of " + num1 + " and " + num2 + " and " + " is " + result0;
+      var result1 = num1 * num2;
+      result1Div.textContent = "The multiply of " + num1 + " and " + num2 + " and " + " is " + result1;
+      var result2 = num1 / num2;
+      result2Div.textContent = "The division of " + num1 + " and " + num2 + " and " + " is " + result1;
+    });
+  </script>
+</body>
+</html>
