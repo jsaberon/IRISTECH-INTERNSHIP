@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./CSS/calcu.css">
+    <title>calculator</title>
+</head>
+<body class="bg-gray-200">
+  <div class="calculator w-64 mx-auto my-10 border border-gray-400 rounded p-5">
+      <div class="input text-right text-2xl font-medium" id="input"></div>
+      <div class="buttons grid grid-cols-4 gap-5">
+        <div class="operators col-span-2 text-center text-xl font-medium">
+          <div class="bg-gray-400 p-2 rounded">+</div>
+          <div class="bg-gray-400 p-2 rounded">-</div>
+          <div class="bg-gray-400 p-2 rounded">&times;</div>
+          <div class="bg-gray-400 p-2 rounded">&divide;</div>
+        </div>
+        <div class="leftPanel col-span-2">
+          <div class="numbers">
+            <div class="bg-gray-400 p-2 rounded">7</div>
+            <div class="bg-gray-400 p-2 rounded">8</div>
+            <div class="bg-gray-400 p-2 rounded">9</div>
+          </div>
+          <div class="numbers">
+            <div class="bg-gray-400 p-2 rounded">4</div>
+            <div class="bg-gray-400 p-2 rounded">5</div>
+            <div class="bg-gray-400 p-2 rounded">6</div>
+          </div>
+          <div class="numbers">
+            <div class="bg-gray-400 p-2 rounded">1</div>
+            <div class="bg-gray-400 p-2 rounded">2</div>
+            <div class="bg-gray-400 p-2 rounded">3</div>
+          </div>
+          <div class="numbers">
+            <div class="bg-gray-400 p-2 rounded">0</div>
+            <div class="bg-gray-400 p-2 rounded">.</div>
+            <div class="bg-gray-400 p-2 rounded" id="clear">C</div>
+          </div>
+        </div>
+        <div class="equal col-span-2 text-center text-xl font-medium">
+          <div class="bg-gray-400 p-2 rounded" id="result">=</div>
+        </div>
+      </div>
+    </div>
+      <script src="./JS/calcu.js"></script>
+</body>
+</html>
