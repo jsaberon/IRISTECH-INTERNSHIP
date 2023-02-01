@@ -9,35 +9,42 @@
 <body>
     <div class="flex items-center h-screen">
         <p class="mx-auto">WELCOME</p>
-      </div>
+    </div>
 
   <input type="text" id="num1">  
   <input type="text" id="num2"> 
   <button id="calculate">Calculate</button>
-  <div id="result"></div>
-    <div id="result0"></div>
-        <div id="result1"></div>
-        <div id ="result2"></div>
+    <div id="result_ADD"></div>
+    <div id="result_SUBTRACT"></div>
+    <div id="result_MULTIPLY"></div>
+    <div id ="result_DIVISION"></div>
   <script>
     var num1Input = document.getElementById("num1");
     var num2Input = document.getElementById("num2");
     var calculateButton = document.getElementById("calculate");
-    var resultDiv = document.getElementById("result");
-    var result0Div = document.getElementById("result0");
-    var result1Div = document.getElementById("result1");
-    var result2Div = document.getElementById("result2");
+    var result_ADDDiv = document.getElementById("result_ADD");
+    var result_SUBTRACTDiv = document.getElementById("result_SUBTRACT");
+    var result_MULTIPLYDiv = document.getElementById("result_MULTIPLY");
+    var result_DIVISIONDiv = document.getElementById("result_DIVISION");
 
     calculateButton.addEventListener("click", function() {
       var num1 = parseFloat(num1Input.value);
       var num2 = parseFloat(num2Input.value);
-      var result = num1 + num2;
-      resultDiv.textContent = "The sum of " + num1 + " and " + num2 + " and " + " is " + result;
-      var result0 = num1 - num2;
-      result0Div.textContent = "The subtract of " + num1 + " and " + num2 + " and " + " is " + result0;
-      var result1 = num1 * num2;
-      result1Div.textContent = "The multiply of " + num1 + " and " + num2 + " and " + " is " + result1;
-      var result2 = num1 / num2;
-      result2Div.textContent = "The division of " + num1 + " and " + num2 + " and " + " is " + result1;
+      var result_ADD = num1 + num2;
+
+      result_ADDDiv.textContent = "The sum of " + num1 + " and " + num2 + " and " + " is " + result_ADD;
+
+      var result_SUBTRACT = num1 - num2;
+
+      result_SUBTRACTDiv.textContent = "The subtract of " + num1 + " and " + num2 + " and " + " is " + result_SUBTRACT;
+
+      var result_MULTIPLY = num1 * num2;
+
+      result_MULTIPLYDiv.textContent = "The multiply of " + num1 + " and " + num2 + " and " + " is " + result_MULTIPLY;
+
+      var result_DIVISION = num1 / num2;
+
+      result_DIVISIONDiv.textContent = "The division of " + num1 + " and " + num2 + " and " + " is " + result_DIVISION;
     });
   </script>
 </body>
