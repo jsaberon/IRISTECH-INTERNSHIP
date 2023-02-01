@@ -9,6 +9,7 @@
 </head>
 <body>
   <center>
+    
     <div class="calculator">
 
       <input type="text" id="display" readonly>
@@ -64,39 +65,48 @@
         let currentDisplay = display.value;
   
         if (value === 'C') {
-  display.value = '';
-  lastOperator = null;
+
+    display.value = '';
+    lastOperator = null;
           
-} else if (value === '=') {
-  display.value = eval(currentDisplay);
-  lastOperator = null;
-} else if (value === 'x') {
-  if (!currentDisplay.endsWith('*')) {
-    display.value += '*';
-  }
-} else if (currentDisplay === '' && operators.includes(value)) {
-  return;
-} else if (operators.includes(value)) {
-  let lastChar = currentDisplay[currentDisplay.length - 1];
-  if (operators.includes(lastChar)) {
-    return;
-  }
-  display.value += value;
-  lastOperator = value;
+  } else if (value === '=') {
+      display.value = eval(currentDisplay);
+      lastOperator = null;
 
-} else if (value === '.') {
-  if (currentDisplay.includes('.')) {
-    return;
+  } else if (value === 'x') {
+      if (!currentDisplay.endsWith('*')) {
+      display.value += '*';
   }
-  display.value += value;
-  lastOperator = null;
 
-} else if (!numbers.includes(value)) {
-  return;
-} else {
-  display.value += value;
-  lastOperator = null;
-}
+  } else if (currentDisplay === '' && operators.includes(value)) {
+     return;
+
+  } else if (operators.includes(value)) {
+      let lastChar = currentDisplay[currentDisplay.length - 1];
+      if (operators.includes(lastChar)) {
+      return;
+  }
+
+    display.value += value;
+    lastOperator = value;
+
+  } else if (value === '.') {
+      if (currentDisplay.includes('.')) {
+      return;
+  }
+
+    display.value += value;
+    lastOperator = null;
+
+  } else if (!numbers.includes(value)) {
+    return;
+
+    } else {
+
+    display.value += value;
+    lastOperator = null;
+
+  }
        
       });
     });
