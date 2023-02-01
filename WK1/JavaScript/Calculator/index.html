@@ -11,7 +11,7 @@
   <center>
     <div class="calculator">
 
-      <input type="text" id="display">
+      <input type="text" id="display" readonly>
 
       <br><br>
 
@@ -53,29 +53,54 @@
 
     let display = document.querySelector('#display');
     let buttons = document.querySelectorAll('button');
-
+    let lastOperator = null;
+    let operators = ['+', '-', '*', '/'];
+    let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+  
     buttons.forEach(button => {
-    button.addEventListener('click', () => {
+      button.addEventListener('click', () => {
+  
+        let value = button.innerHTML;
+        let currentDisplay = display.value;
+  
+        if (value === 'C') {
+  display.value = '';
+  lastOperator = null;
+          
+} else if (value === '=') {
+  display.value = eval(currentDisplay);
+  lastOperator = null;
+} else if (value === 'x') {
+  if (!currentDisplay.endsWith('*')) {
+    display.value += '*';
+  }
+} else if (currentDisplay === '' && operators.includes(value)) {
+  return;
+} else if (operators.includes(value)) {
+  let lastChar = currentDisplay[currentDisplay.length - 1];
+  if (operators.includes(lastChar)) {
+    return;
+  }
+  display.value += value;
+  lastOperator = value;
 
-      let value = button.innerHTML;
-      let currentDisplay = display.value;
+} else if (value === '.') {
+  if (currentDisplay.includes('.')) {
+    return;
+  }
+  display.value += value;
+  lastOperator = null;
 
-      if (value === 'C') {
-        display.value = '';
-
-      } else if (value === '=') {
-        display.value = eval(currentDisplay);
-
-      } else if (value === 'x') {
-        display.value += '*';
-        
-      } else {
-        display.value += value;
-      }
-
-     });
+} else if (!numbers.includes(value)) {
+  return;
+} else {
+  display.value += value;
+  lastOperator = null;
+}
+       
+      });
     });
-
+  
   </script>
   
       
