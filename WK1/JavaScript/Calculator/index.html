@@ -49,70 +49,46 @@
     </div>
   </center>
   
-
   <script>
-
     let display = document.querySelector('#display');
     let buttons = document.querySelectorAll('button');
     let lastOperator = null;
-    let operators = ['+', '-', '*', '/'];
-    let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-  
+    let notSign = ['x', '*', '/'];
+    let operators = ['+', '-', '*', '/', 'x'];
+
+    let inputArray = []
+    let inputString = ''
+
     buttons.forEach(button => {
       button.addEventListener('click', () => {
-  
         let value = button.innerHTML;
-        let currentDisplay = display.value;
-  
-        if (value === 'C') {
 
-    display.value = '';
-    lastOperator = null;
-          
-  } else if (value === '=') {
-      display.value = eval(currentDisplay);
-      lastOperator = null;
+        if(inputString === '' && notSign.includes(value)) return
 
-  } else if (value === 'x') {
-      if (!currentDisplay.endsWith('*')) {
-      display.value += '*';
-  }
+        if(operators.includes(inputArray[inputArray.length - 1]) && operators.includes(value)) return
 
-  } else if (currentDisplay === '' && operators.includes(value)) {
-     return;
+        if(value === 'C') {
+          inputArray = ['']
+          inputString = inputArray.toString().replaceAll(',', '')
+          display.value = inputString
+          return
+        }
 
-  } else if (operators.includes(value)) {
-      let lastChar = currentDisplay[currentDisplay.length - 1];
-      if (operators.includes(lastChar)) {
-      return;
-  }
+        if(value === '=') {
+          total = eval(inputString)
+          inputArray = [total]
+          inputString = inputArray.toString().replaceAll(',', '')
+          display.value = inputString
+          return
+        }
 
-    display.value += value;
-    lastOperator = value;
+        if(value === 'x') value = '*'
+        inputArray.push(value)
 
-  } else if (value === '.') {
-      if (currentDisplay.includes('.')) {
-      return;
-  }
-
-    display.value += value;
-    lastOperator = null;
-
-  } else if (!numbers.includes(value)) {
-    return;
-
-    } else {
-
-    display.value += value;
-    lastOperator = null;
-
-  }
-       
-      });
-    });
-  
+        inputString = inputArray.toString().replaceAll(',', '')
+        display.value = inputString
+      })
+    })
   </script>
-  
-      
 </body>
 </html>
