@@ -7,7 +7,6 @@
 	<title>contactus Page</title>
 </head>
 <body>
-	
 	<?php
 	echo "Home";
 	?>
